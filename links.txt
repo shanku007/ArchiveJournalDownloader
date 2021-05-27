@@ -1,3 +1,6 @@
+https://archive.org/search.php?query=Nagri+Pracharini+Patrika
+https://archive.org/search.php?query=dc.title%3A+Nagaripracharini+Patrika+&sort=titleSorter
+https://archive.org/search.php?query=subject%3A%22Hindi+Periodicals%22&sort=titleSorter
 https://eap.bl.uk/archive-file/EAP781-1-5-98
 https://eap.bl.uk/archive-file/EAP781-1-5-99
 https://eap.bl.uk/archive-file/EAP781-1-5-95
@@ -13,6 +16,3 @@ https://eap.bl.uk/archive-file/EAP781-1-5-100
 https://eap.bl.uk/archive-file/EAP781-1-5-101
 https://eap.bl.uk/archive-file/EAP781-1-5-102
 https://eap.bl.uk/archive-file/EAP781-1-5-103
-https://archive.org/search.php?query=Nagri+Pracharini+Patrika
-https://archive.org/search.php?query=dc.title%3A+Nagaripracharini+Patrika+&sort=titleSorter
-https://archive.org/search.php?query=subject%3A%22Hindi+Periodicals%22&sort=titleSorter

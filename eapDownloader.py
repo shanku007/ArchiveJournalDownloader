@@ -39,12 +39,15 @@ class EapDownloader:
                 else:
                     content = response.content
                     save_file(file_path_to_save,content)
-                images_dir = os.path.join(folder_to_store,"images")
-                path_to_pdf = f"{folder_to_store}/{get_basepath()}.pdf"
-                convert_to_pdf(images_dir,path_to_pdf,self.logger)
             except:
                 self.logger.error(f"Error downloading {i}th file of {get_basepath()} url: {get_url(i)}")
                 self.logger.warning(f"I suggest you to rerun the program for {self.url}")
+                continue
+        images_dir = os.path.join(folder_to_store,"images")
+        path_to_pdf = f"{folder_to_store}/{get_basepath()}.pdf"
+        convert_to_pdf(images_dir,path_to_pdf,self.logger)
+
+        
 
 if __name__ == "__main__":
     downloader = EapDownloader("https://eap.bl.uk/archive-file/EAP781-1-5-103")

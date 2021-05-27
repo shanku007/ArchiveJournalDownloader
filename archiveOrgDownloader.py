@@ -35,7 +35,7 @@ class ArchiveDownloader:
         links = self.crawl_for_links(self.url,'item-ttl',fetch_name=True)
         for each_link in links:
             basepath = f"{each_link['name']}"
-            self.logger.info("Downloading",basepath)
+            self.logger.info(f"Downloading{basepath}")
             try:
                 folder_to_save = os.path.join(self.save_dir,basepath)
                 create_folder(folder_to_save)
@@ -44,9 +44,9 @@ class ArchiveDownloader:
                 pdf_link = find_pdf_link(download_links)
                 if not pdf_link:
                     self.logger.warning("No pdf link found Trying to download first link")
-                    self.logger.warning("I suggest you to manually download this file from {complete_link}")
-                    pdf_link = download_links[0]["link"]
-                    file_path_to_save = os.path.join(folder_to_save,os.path.basename(pdf_link))
+                    self.logger.warning(f"I suggest you to manually view this file from {complete_link}")
+                    pdf_link = f"https://archive.org{download_links[7]['link']}"
+                    file_path_to_save = os.path.join(folder_to_save,"complete_pdf_file.zip")
                 else:
                     file_path_to_save = os.path.join(folder_to_save,os.path.basename(pdf_link))
                 if os.path.exists(file_path_to_save):
@@ -59,7 +59,10 @@ class ArchiveDownloader:
                     save_file(file_path_to_save,content)
             except Exception as err:
                 self.logger.info(err)
-                self.logger.error(f"Error downloading basepath")
+                self.logger.warning("It might be a zip file containing multiple pdf files")
+                self.logger.warning(f"Look if zip file in {os.path.join(folder_to_save,'complete_pdf_file.zip')} \
+                    is what you are looking for")
+                self.logger.error(f"Error downloading {basepath}")
 
 
 if __name__ == "__main__":

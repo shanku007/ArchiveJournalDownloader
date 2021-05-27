@@ -1,0 +1,37 @@
+root, 2021-05-28 03:15:43,640, [INFO], Starting to Downloading files
+root, 2021-05-28 03:15:43,641, [INFO], Downloading from : https://archive.org/search.php?query=Nagri+Pracharini+Patrika
+urllib3.connectionpool, 2021-05-28 03:15:43,650, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:15:51,065, [DEBUG], https://archive.org:443 "GET /search.php?query=Nagri+Pracharini+Patrika HTTP/1.1" 200 None
+root, 2021-05-28 03:15:51,234, [INFO], DownloadingNagri Pracharini Patrika Ac 2594
+urllib3.connectionpool, 2021-05-28 03:15:51,237, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:15:53,120, [DEBUG], https://archive.org:443 "GET /details/in.ernet.dli.2015.103199 HTTP/1.1" 200 None
+root, 2021-05-28 03:15:53,183, [INFO], DownloadingNagri Pracharini Patrika Ac 2594
+urllib3.connectionpool, 2021-05-28 03:15:53,186, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:15:55,174, [DEBUG], https://archive.org:443 "GET /details/in.ernet.dli.2015.528850 HTTP/1.1" 200 None
+root, 2021-05-28 03:15:55,221, [INFO], DownloadingNagri Pracharini Patrika Ac 2595
+urllib3.connectionpool, 2021-05-28 03:15:55,223, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:15:57,021, [DEBUG], https://archive.org:443 "GET /details/in.ernet.dli.2015.442405 HTTP/1.1" 200 None
+root, 2021-05-28 03:15:57,082, [INFO], DownloadingNagri Pracharini Patrika Ac 2597
+urllib3.connectionpool, 2021-05-28 03:15:57,084, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:15:58,768, [DEBUG], https://archive.org:443 "GET /details/in.ernet.dli.2015.442416 HTTP/1.1" 200 None
+root, 2021-05-28 03:15:58,824, [INFO], DownloadingNagri Pracharini Patrika Ac 4335
+urllib3.connectionpool, 2021-05-28 03:15:58,827, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:00,829, [DEBUG], https://archive.org:443 "GET /details/in.ernet.dli.2015.442439 HTTP/1.1" 200 None
+urllib3.connectionpool, 2021-05-28 03:16:00,886, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:02,261, [DEBUG], https://archive.org:443 "GET /download/in.ernet.dli.2015.442439/2015.442439.Nagri-Pracharini.pdf HTTP/1.1" 302 None
+urllib3.connectionpool, 2021-05-28 03:16:02,273, [DEBUG], Starting new HTTPS connection (1): ia801602.us.archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:03,912, [DEBUG], https://ia801602.us.archive.org:443 "GET /27/items/in.ernet.dli.2015.442439/2015.442439.Nagri-Pracharini.pdf HTTP/1.1" 200 7143377
+root, 2021-05-28 03:16:27,851, [INFO], DownloadingNagri Pracharini Patrika (1968) Ac 4321
+urllib3.connectionpool, 2021-05-28 03:16:27,855, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:30,029, [DEBUG], https://archive.org:443 "GET /details/in.ernet.dli.2015.427498 HTTP/1.1" 200 None
+urllib3.connectionpool, 2021-05-28 03:16:30,224, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:31,917, [DEBUG], https://archive.org:443 "GET /download/in.ernet.dli.2015.427498/2015.427498.NagriPrachariniPatrika1968AC4321.pdf HTTP/1.1" 302 None
+urllib3.connectionpool, 2021-05-28 03:16:31,929, [DEBUG], Starting new HTTPS connection (1): ia801608.us.archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:33,628, [DEBUG], https://ia801608.us.archive.org:443 "GET /18/items/in.ernet.dli.2015.427498/2015.427498.NagriPrachariniPatrika1968AC4321.pdf HTTP/1.1" 200 3290500
+root, 2021-05-28 03:16:41,059, [INFO], DownloadingNagri Pracharini Patrika (1970) Ac 4332
+urllib3.connectionpool, 2021-05-28 03:16:41,063, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:43,086, [DEBUG], https://archive.org:443 "GET /details/in.ernet.dli.2015.442383 HTTP/1.1" 200 None
+urllib3.connectionpool, 2021-05-28 03:16:43,147, [DEBUG], Starting new HTTPS connection (1): archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:44,447, [DEBUG], https://archive.org:443 "GET /download/in.ernet.dli.2015.442383/2015.442383.NagriPrachariniPatrika1970AC4332.pdf HTTP/1.1" 302 None
+urllib3.connectionpool, 2021-05-28 03:16:44,457, [DEBUG], Starting new HTTPS connection (1): ia801608.us.archive.org:443
+urllib3.connectionpool, 2021-05-28 03:16:46,273, [DEBUG], https://ia801608.us.archive.org:443 "GET /11/items/in.ernet.dli.2015.442383/2015.442383.NagriPrachariniPatrika1970AC4332.pdf HTTP/1.1" 200 4499797

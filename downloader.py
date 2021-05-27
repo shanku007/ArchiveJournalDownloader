@@ -24,6 +24,8 @@ class Downloader:
                 down_inst = ArchiveDownloader(each_link,self.logger,self.save_dir)
             elif link_attr.netloc == EAP_BL_UK:
                 down_inst = EapDownloader(each_link,self.logger,self.save_dir)
+            else:
+                continue
             down_inst.download()
 
 
