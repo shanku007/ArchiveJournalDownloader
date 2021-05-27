@@ -1,0 +1,4 @@
+venv/
+Journal/
+.vscode/
+__pycache__/
