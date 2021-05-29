@@ -1,7 +1,7 @@
 ## NOTE
 This is a personal project created for a researcher friend. Releasing this for other people with similar problem.
 
-# A repo to automatically donload Journal from
+# A repo to automatically download Journal from
 1. https://archive.org/
 2. https://eap.bl.uk/
 
