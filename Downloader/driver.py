@@ -1,5 +1,5 @@
-from archiveOrgDownloader import ArchiveDownloader
-from eapDownloader import EapDownloader
+from .archiveOrgDownloader import ArchiveDownloader
+from .eapDownloader import EapDownloader
 from os import link, read
 from Commons.util import read_txt_file
 from urllib.parse import urlsplit

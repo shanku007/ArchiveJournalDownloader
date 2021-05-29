@@ -1,8 +1,6 @@
 aiofiles==0.7.0
 aiohttp==3.7.4.post0
 altgraph==0.17
-# Editable Git install with no remote (archiveDownloader==0.1)
--e .
 async-timeout==3.0.1
 attrs==21.2.0
 Automat==20.2.0

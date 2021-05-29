@@ -1,4 +1,4 @@
-from downloader import Downloader
+from .downloader import Downloader
 from logging import log
 import os
 from posixpath import basename

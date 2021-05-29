@@ -5,9 +5,8 @@ from Commons.util import (
     convert_to_pdf
 )
 import os
-from downloader import Downloader
+from .downloader import Downloader
 from Commons.request import makeGet
-import traceback
 import logging
 
 
