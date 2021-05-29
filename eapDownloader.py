@@ -8,6 +8,7 @@ import os
 from downloader import Downloader
 from request import makeGet
 import traceback
+import logging
 
 
 
@@ -16,12 +17,11 @@ class EapDownloader(Downloader):
     def __init__(
         self,
         url,
-        logger,
         save_dir=os.path.dirname(os.path.realpath(__file__))
         ) -> None:
         self.url = url
         self.save_dir = save_dir
-        self.logger = logger
+        self.logger = logging
         super().__init__()
 
 
@@ -43,7 +43,6 @@ class EapDownloader(Downloader):
                     content = response.content
                     save_file(file_path_to_save,content)
             except Exception as e:
-                traceback.print_exc()
                 print(e)
                 self.logger.error(f"Error downloading {i}th file of {get_basepath()} url: {get_url(i)}")
                 self.logger.warning(f"I suggest you to rerun the program for {self.url}")

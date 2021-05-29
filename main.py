@@ -4,6 +4,7 @@ from driver import download
 import os
 import logging
 import tempfile
+import threading
 
 buffer = ''
 
@@ -15,8 +16,8 @@ class Handler(logging.StreamHandler):
     def emit(self, record):
         global buffer
         record = f'{record.name}: [{record.levelname}]: {record.message or "No message"}'
-        buffer = f'{buffer}\n{record}'.strip()
-        window['log'].update(value=buffer)
+        record = f'\n{record}'.strip()
+        window['log'].update(value=record,append=True)
 
 def create_logger(window):
     tmp = "download_log.txt"
@@ -40,7 +41,7 @@ layout = [[sg.T("")],
             sg.Input(key="Text-FILE-IN", change_submits=True),
             sg.FileBrowse(key="Text-FILE-BUTTON")],
             [sg.Button("Submit")],
-            [sg.Output(size=(500, 100), key='log')]]
+            [sg.Multiline(size=(500, 100), key='log')]]
 
 # Building Window
 window = sg.Window('Old Archive Downloads', layout, size=(600, 500))
@@ -48,15 +49,14 @@ logger = create_logger(window)
 
 def create_GUI():
     while True:
-        event, values = window.read()
+        event, values = window.read(timeout=500)
         if event == sg.WIN_CLOSED or event == "Exit":
             break
         elif event == "Submit":
             window['Submit'].update(disabled=True)
             if os.path.exists(values["Text-FILE-IN"]) and os.path.exists(values["DOWNLOAD-FOLDER-BUTTON"]):
                 logger.info("Starting to Downloading files")
-                download(
-                    values["Text-FILE-IN"], values["DOWNLOAD-FOLDER-BUTTON"], logger)
+                threading.Thread(target=download, args=(values["Text-FILE-IN"], values["DOWNLOAD-FOLDER-BUTTON"]), daemon=True).start()
             else:
                 logger.info(
                     "Please give the folder to save and the text file with links")
