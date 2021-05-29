@@ -2,3 +2,6 @@ venv/
 Journal/
 .vscode/
 __pycache__/
+download_log.txt
+settings_file.cfg
+archiveDownloader.egg-info
