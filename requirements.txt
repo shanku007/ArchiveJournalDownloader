@@ -1,6 +1,12 @@
+aiofiles==0.7.0
+aiohttp==3.7.4.post0
 altgraph==0.17
+# Editable Git install with no remote (archiveDownloader==0.1)
+-e .
+async-timeout==3.0.1
 attrs==21.2.0
 Automat==20.2.0
+autopep8==1.5.7
 beautifulsoup4==4.9.3
 certifi==2020.12.5
 cffi==1.14.5
@@ -8,11 +14,13 @@ chardet==4.0.0
 constantly==15.1.0
 cryptography==3.4.7
 cssselect==1.1.0
+fpdf==1.7.2
 h2==3.2.0
 hpack==3.0.0
 hyperframe==5.2.0
 hyperlink==21.0.0
 idna==2.10
+img2pdf==0.4.1
 importlib-metadata==4.0.1
 incremental==21.3.0
 itemadapter==0.2.0
@@ -20,11 +28,16 @@ itemloaders==1.0.4
 jmespath==0.10.0
 lxml==4.6.3
 macholib==1.14
+multidict==5.1.0
 parsel==1.6.0
+pikepdf==2.12.1
+Pillow==8.2.0
 priority==1.3.0
 Protego==0.1.16
+psutil==5.8.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
+pycodestyle==2.7.0
 pycparser==2.20
 PyDispatcher==2.0.5
 pyinstaller==4.3
@@ -38,9 +51,11 @@ service-identity==21.1.0
 six==1.16.0
 soupsieve==2.2.1
 tk==0.1.0
+toml==0.10.2
 Twisted==21.2.0
 typing-extensions==3.10.0.0
 urllib3==1.26.4
 w3lib==1.22.0
+yarl==1.6.3
 zipp==3.4.1
 zope.interface==5.4.0
