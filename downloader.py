@@ -29,8 +29,6 @@ class Downloader:
             down_inst.download()
 
 
-        
-
 if __name__ == "__main__":
     dow = Downloader("links.txt","Journal",logging)
     dow.download()
