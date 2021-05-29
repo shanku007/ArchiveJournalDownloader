@@ -5,3 +5,5 @@ __pycache__/
 download_log.txt
 settings_file.cfg
 archiveDownloader.egg-info
+main.spec
+build/
