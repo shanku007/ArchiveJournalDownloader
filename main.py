@@ -1,6 +1,6 @@
 from tkinter import Scrollbar
 import PySimpleGUI as sg
-from downloader import Downloader
+from driver import download
 import os
 import logging
 import tempfile
@@ -55,9 +55,8 @@ def create_GUI():
             window['Submit'].update(disabled=True)
             if os.path.exists(values["Text-FILE-IN"]) and os.path.exists(values["DOWNLOAD-FOLDER-BUTTON"]):
                 logger.info("Starting to Downloading files")
-                downloader = Downloader(
+                download(
                     values["Text-FILE-IN"], values["DOWNLOAD-FOLDER-BUTTON"], logger)
-                downloader.download()
             else:
                 logger.info(
                     "Please give the folder to save and the text file with links")

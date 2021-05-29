@@ -1,11 +1,13 @@
+from downloader import Downloader
 from logging import log
 import os
 from posixpath import basename
 from util import create_folder, find_pdf_link,save_file
 from request import makeGet
 from bs4 import BeautifulSoup
+import traceback
 
-class ArchiveDownloader:
+class ArchiveDownloader(Downloader):
 
     def __init__(
         self,
@@ -16,6 +18,7 @@ class ArchiveDownloader:
         self.url = url
         self.save_dir = save_dir
         self.logger = logger
+        super().__init__()
 
     def crawl_for_links(self,url,div_class,fetch_name=False):
         soup = BeautifulSoup(makeGet(url).content, 'html.parser')
@@ -58,7 +61,7 @@ class ArchiveDownloader:
                     content = response.content
                     save_file(file_path_to_save,content)
             except Exception as err:
-                self.logger.info(err)
+                traceback.print_exc()
                 self.logger.warning("It might be a zip file containing multiple pdf files")
                 self.logger.warning(f"Look if zip file in {os.path.join(folder_to_save,'complete_pdf_file.zip')} \
                     is what you are looking for")

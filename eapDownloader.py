@@ -5,11 +5,13 @@ from util import (
     convert_to_pdf
 )
 import os
+from downloader import Downloader
 from request import makeGet
+import traceback
 
 
 
-class EapDownloader:
+class EapDownloader(Downloader):
 
     def __init__(
         self,
@@ -20,6 +22,7 @@ class EapDownloader:
         self.url = url
         self.save_dir = save_dir
         self.logger = logger
+        super().__init__()
 
 
     def download(self):
@@ -39,7 +42,9 @@ class EapDownloader:
                 else:
                     content = response.content
                     save_file(file_path_to_save,content)
-            except:
+            except Exception as e:
+                traceback.print_exc()
+                print(e)
                 self.logger.error(f"Error downloading {i}th file of {get_basepath()} url: {get_url(i)}")
                 self.logger.warning(f"I suggest you to rerun the program for {self.url}")
                 continue
