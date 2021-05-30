@@ -5,6 +5,12 @@ def makeGet(url):
     response = requests.get(url)
     return response
 
+def makeParallelGet(session,url):
+    print("Calling for url",url)
+    with session.get(url) as response:
+
+        return response
+
 def makeRequest(url,method="POST"):
     if method == "POST":
         pass

@@ -6,8 +6,11 @@ from ..Commons.util import (
 )
 import os
 from .downloader import Downloader
-from ..Commons.request import makeGet
+from ..Commons.request import makeParallelGet
 import logging
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
+import requests
 
 
 
@@ -24,31 +27,44 @@ class EapDownloader(Downloader):
         super().__init__()
 
 
-    def download(self):
+    async def download(self):
         get_url,get_basepath = create_base_link_for_eap(self.url)
         folder_to_store = os.path.join(self.save_dir,get_basepath())
         create_folder(os.path.join(folder_to_store,"images"))
-        for i in range(1,100000):
-            self.logger.info(f"Downloading {i}th file of {get_basepath()}")
-            try:
-                file_path_to_save = os.path.join(folder_to_store,"images",f"image_{i}.jpg")
-                files_already_downloaded = os.listdir(os.path.join(folder_to_store,"images"))
-                if os.path.basename(file_path_to_save) in files_already_downloaded:
-                    continue
-                response = makeGet(get_url(i))
-                if response.status_code != 200:
-                    break
-                else:
-                    content = response.content
-                    save_file(file_path_to_save,content)
-            except Exception as e:
-                print(e)
-                self.logger.error(f"Error downloading {i}th file of {get_basepath()} url: {get_url(i)}")
-                self.logger.warning(f"I suggest you to rerun the program for {self.url}")
-                continue
-        images_dir = os.path.join(folder_to_store,"images")
-        path_to_pdf = f"{folder_to_store}/{get_basepath()}.pdf"
-        convert_to_pdf(images_dir,path_to_pdf,self.logger)
+        files_already_downloaded = os.listdir(os.path.join(folder_to_store,"images"))
+        try:
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                with requests.Session() as session:
+                # Set any session parameters here before calling `fetch`
+
+                # Initialize the event loop        
+                    loop = asyncio.get_event_loop()
+                    tasks = [
+                    loop.run_in_executor(
+                        executor,
+                        makeParallelGet,
+                        *(session, get_url(i)) # Allows us to pass in multiple arguments to `fetch`
+                    )
+                    for i in range(1,2000) if f"image_{i}.jpg" not in files_already_downloaded
+                ]
+
+                for index,response in enumerate(await asyncio.gather(*tasks)):
+                    self.logger.info(f"Downloading {index}th file of {get_basepath()}")
+                    file_path_to_save = os.path.join(folder_to_store,"images",f"image_{index}.jpg")
+                    if response.status_code != 200:
+                        break
+                    else:
+                        content = response.content
+                        save_file(file_path_to_save,content)
+            images_dir = os.path.join(folder_to_store,"images")
+            path_to_pdf = f"{folder_to_store}/{get_basepath()}.pdf"
+            convert_to_pdf(images_dir,path_to_pdf,self.logger)
+
+        except Exception as e:
+            print(e)
+            self.logger.error(f"Error downloading files  of {get_basepath()}")
+            self.logger.warning(f"I suggest you to rerun the program for {self.url}")
+            
 
         
 

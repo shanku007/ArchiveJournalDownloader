@@ -1,6 +1,8 @@
 ## NOTE
 This is a personal project created for a researcher friend. Releasing this for other people with similar problem.
 
+# To report a problem Create a issue
+
 # A repo to automatically download achives from
 1. https://archive.org/
 2. https://eap.bl.uk/
