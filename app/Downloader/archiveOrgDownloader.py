@@ -2,8 +2,8 @@ from .downloader import Downloader
 from logging import log
 import os
 from posixpath import basename
-from Commons.util import create_folder, find_pdf_link,save_file
-from Commons.request import makeGet
+from ..Commons.util import create_folder, find_pdf_link,save_file
+from ..Commons.request import makeGet
 from bs4 import BeautifulSoup
 import traceback
 import logging

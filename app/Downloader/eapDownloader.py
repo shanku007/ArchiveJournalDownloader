@@ -1,4 +1,4 @@
-from Commons.util import (
+from ..Commons.util import (
     create_base_link_for_eap,
     save_file,
     create_folder,
@@ -6,7 +6,7 @@ from Commons.util import (
 )
 import os
 from .downloader import Downloader
-from Commons.request import makeGet
+from ..Commons.request import makeGet
 import logging
 
 

@@ -1,9 +1,7 @@
-from tkinter import Scrollbar
 import PySimpleGUI as sg
-from Downloader.driver import download
+from app.Downloader.driver import download
 import os
 import logging
-import tempfile
 import threading
 
 buffer = ''
@@ -16,8 +14,8 @@ class Handler(logging.StreamHandler):
     def emit(self, record):
         global buffer
         record = f'{record.name}: [{record.levelname}]: {record.message or "No message"}'
-        record = f'\n{record}'.strip()
-        window['log'].update(value=record,append=True)
+        buffer = f'{buffer}\n{record}\n'.strip()
+        window['log'].update(value=buffer)
 
 
 def create_logger(window):
@@ -48,10 +46,10 @@ layout = [[sg.T("")],
             size=(15,2),
             )],
             [TextLabel("Made with ❤️ Shankar Jha")],
-            [sg.Multiline(size=(500, 100), key='log')]]
+            [sg.Multiline(size=(500, 100), key='log',autoscroll=True)]]
 
 # Building Window
-window = sg.Window('Old Archive Downloads', layout, size=(600, 500))
+window = sg.Window('Old Archive Downloader', layout, size=(600, 500))
 logger = create_logger(window)
 
 def create_GUI():
