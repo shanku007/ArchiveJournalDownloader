@@ -5,11 +5,14 @@ def makeGet(url):
     response = requests.get(url)
     return response
 
-def makeParallelGet(session,url):
-    print("Calling for url",url)
-    with session.get(url) as response:
-
-        return response
+async def makeParallelGet(session, url):
+    async with session.get(url) as response:
+        print(f"Downloading file from {url}")
+        return {
+            "status":response.status,
+            "content_length":response.content_length,
+            "content":await response.read()
+        }
 
 def makeRequest(url,method="POST"):
     if method == "POST":

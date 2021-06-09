@@ -19,6 +19,7 @@ def download_concurrently(save_dir,each_link):
     elif link_attr.netloc == EAP_BL_UK:
         down_inst = EapDownloader(each_link,save_dir)
     loop.run_until_complete(down_inst.download())
+    logging.info(f"Downloaded {each_link}")
 
 
 def download(text_file_path,folder_to_save):
