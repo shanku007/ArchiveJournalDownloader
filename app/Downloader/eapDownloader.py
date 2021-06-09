@@ -1,12 +1,12 @@
-from ..Commons.util import (
+from app.Commons.util import (
     create_base_link_for_eap,
     save_file,
     create_folder,
     convert_to_pdf
 )
 import os
-from .downloader import Downloader
-from ..Commons.request import makeParallelGet
+from app.Downloader.downloader import Downloader
+from app.Commons.request import makeParallelGet
 import logging
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
@@ -33,7 +33,7 @@ class EapDownloader(Downloader):
         create_folder(os.path.join(folder_to_store,"images"))
         files_already_downloaded = os.listdir(os.path.join(folder_to_store,"images"))
         try:
-            with ThreadPoolExecutor(max_workers=10) as executor:
+            with ThreadPoolExecutor(max_workers=4) as executor:
                 with requests.Session() as session:
                 # Set any session parameters here before calling `fetch`
 
@@ -45,7 +45,7 @@ class EapDownloader(Downloader):
                         makeParallelGet,
                         *(session, get_url(i)) # Allows us to pass in multiple arguments to `fetch`
                     )
-                    for i in range(1,2000) if f"image_{i}.jpg" not in files_already_downloaded
+                    for i in range(1,1300) if f"image_{i}.jpg" not in files_already_downloaded
                 ]
 
                 for index,response in enumerate(await asyncio.gather(*tasks)):

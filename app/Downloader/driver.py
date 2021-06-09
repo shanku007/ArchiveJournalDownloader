@@ -1,8 +1,8 @@
-from .archiveOrgDownloader import ArchiveDownloader
-from .eapDownloader import EapDownloader
-from ..Commons.util import read_txt_file
+from app.Downloader.archiveOrgDownloader import ArchiveDownloader
+from app.Downloader.eapDownloader import EapDownloader
+from app.Commons.util import read_txt_file
 from urllib.parse import urlsplit
-from ..Commons.constants import *
+from app.Commons.constants import *
 import logging
 import asyncio
 from functools import partial
