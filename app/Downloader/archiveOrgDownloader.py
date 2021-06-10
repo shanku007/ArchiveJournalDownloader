@@ -60,6 +60,7 @@ class ArchiveDownloader(Downloader):
                 else:
                     content = response.content
                     save_file(file_path_to_save,content)
+                    self.logger.info(f"Successfully downloaded files from {self.url}and created pdf")
             except Exception as err:
                 traceback.print_stack()
                 self.logger.warning("It might be a zip file containing multiple pdf files")
